@@ -18,3 +18,5 @@ Files:
   
 History:
 --------
+ **2022-10-19:**  
+ <pre>Imported OpenDogV3 code into this repository for commenting and documentation</pre>
