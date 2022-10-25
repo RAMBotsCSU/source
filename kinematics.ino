@@ -1,18 +1,24 @@
-      //*******************************************************************************
-      //*This space will contain the overview of kinematics.ino
-      //*
-      //*
-      //*
-      //*
-      //*
+      //**********************************************************************************
+      //* Kinematics.io first takes in whether or not interpolation calculations will be *
+      //* done. If yes, then the code interpolates from the previous position to the new *
+      //* position for a specified number of points/frames (dur). From there, the        *
+      //* Jacobians are then derived in order to calculate the inverse kinematics (new   *
+      //* angle for each joint). Yaw, roll, and pitch is taken into account with angles  *
+      //* to define output final angle positions to get encoded and sent to the          *
+      //* odrives                                                                        *
+      //**********************************************************************************
 
 
 void kinematics (int leg, float xIn, float yIn, float zIn, float roll, float pitch, float yawIn, int interOn, int dur) {
-      
       // leg 1  : front left
       // leg 2  : front right
       // leg 3  : back left
       // leg 4  : back right
+      //interOn = 1 --> interpolation is on
+      //interOn = 0 --> interpolation is off
+      
+      
+      //Defines all variables 
       
       // moving the foot sideways on the end plane
       float hipOffset = 108;     // distance from the hip pivot to the centre of the leg
@@ -88,6 +94,8 @@ void kinematics (int leg, float xIn, float yIn, float zIn, float roll, float pit
       // use Interpolated values if Interpolation is on
       if (interOn == 1) {     
       
+            //If interpolation is on, the program will slowly iterate from the current position to the new position for the specified number of frames/time (dur)
+            
             if (leg == 1) {        // front right
                 z = interpFRZ.go(zIn,dur);
                 x = interpFRX.go(xIn,dur);
@@ -149,7 +157,8 @@ void kinematics (int leg, float xIn, float yIn, float zIn, float roll, float pit
       // convert degrees to radians for the calcs
       yawAngle = (PI/180) * yaw;
       
-      // put in offsets from robot's parameters so we can work out the radius of the foot from the robot's centre
+      // put in offsets from robot's parameters so we can work out the radius of the foot from the robot's centre (jacobian calculation)
+      //Distance aspect of the Jacobian (each leg tip to the center of the robot)
       if (leg == 1) {         // front left leg
          y = y - (bodyWidth+hipOffset); 
          x = x - bodyLength;      
@@ -167,7 +176,7 @@ void kinematics (int leg, float xIn, float yIn, float zIn, float roll, float pit
          x = x + bodyLength;
       }
       
-      //calc existing angle of leg from cetre
+      //calc existing angle of leg from cetre (angle aspect of the Jacobian) which is then used to determine yaw pitch and angle
       existingAngle = atan(y/x);   
       
       // calc radius from centre
