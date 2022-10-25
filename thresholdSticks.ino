@@ -1,3 +1,7 @@
+//***************************************************************************
+//* Remnant from original. Will not be using for this iteration.            *
+//***************************************************************************
+
 int thresholdStick (int pos) {
   
     // get zero centre position
