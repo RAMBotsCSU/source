@@ -1,4 +1,13 @@
-      void kinematics (int leg, float xIn, float yIn, float zIn, float roll, float pitch, float yawIn, int interOn, int dur) {
+      //*******************************************************************************
+      //*This space will contain the overview of kinematics.ino
+      //*
+      //*
+      //*
+      //*
+      //*
+
+
+void kinematics (int leg, float xIn, float yIn, float zIn, float roll, float pitch, float yawIn, int interOn, int dur) {
       
       // leg 1  : front left
       // leg 2  : front right
