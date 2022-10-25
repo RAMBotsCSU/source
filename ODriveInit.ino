@@ -1,3 +1,8 @@
+//**************************************************************************
+//* File takes in data from odrives. Finds new offsets and sends info back *
+//* to Odrives all utilizing serial bus                                    *
+//**************************************************************************
+
 // init hips
 
 void OdriveInit1() {
@@ -138,6 +143,8 @@ void modifyGains() {                               // this function turns up the
           Serial6 << "w axis" << 0 << ".controller.config.vel_integrator_gain " << integrator << '\n';
           Serial6 << "w axis" << 1 << ".controller.config.vel_integrator_gain " << integrator << '\n';        
 }
+
+//Requires Arduino Odrive Library
 
 void applyOffsets1() {
           // apply initial offsets to ODrives for hips         
