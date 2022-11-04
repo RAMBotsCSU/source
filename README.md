@@ -13,9 +13,9 @@ Files:
 | File        | Description           |
 | ------------- |-------------|
 | README      | this file |
-| ODriveInit.ino        |       |
-| kinematics.ino        |       |
-| openDogV3.ino       |       |
+| ODriveInit.ino        | File takes in data from odrives. Finds new offsets and sends info back to Odrives all utilizing serial bus       |
+| kinematics.ino        | Use inverse kinematics to ... |
+| openDogV3.ino       |  |
 | thresholdSticks.ino        |       |
 
 History:
