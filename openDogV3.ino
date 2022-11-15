@@ -460,6 +460,7 @@ void loop() {
     // ** inverse kinematics demo ** 
 
         // scale sticks to mm
+        // constrain joysticks +/-462 range to +/-100
         RFB = map(RFB,-462,462,-100,100);
         RLR = map(RLR,-462,462,-100,100);        
         RT = map(RT,-462,462,240,440);
