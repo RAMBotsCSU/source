@@ -47,12 +47,12 @@ struct RECEIVE_DATA_STRUCTURE {
   int16_t toggle1;
   int16_t toggle2;
   int16_t mode;
-  int16_t RLR;
-  int16_t RFB;
-  int16_t RT;
-  int16_t LLR;
-  int16_t LFB;
-  int16_t LT;
+  int16_t RLR;  // Right joystick, left-right axis
+  int16_t RFB;  // Right joystick, forward-backward axis
+  int16_t RT;   // Right joystick twist
+  int16_t LLR;  // Left joystick, left-right axis
+  int16_t LFB;  // Left joystick, forward-backward axis
+  int16_t LT;   // Left joystick twist
 };
 
 RECEIVE_DATA_STRUCTURE mydata_remote;
